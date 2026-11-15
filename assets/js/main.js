@@ -160,7 +160,18 @@
       });
       panels[i].querySelectorAll('li').forEach((li, n) => li.style.setProperty('--n', n));
       if (focus) tabs[i].focus();
+      tinta(tabs[i]);
     };
+    const ink = sw.querySelector('[data-seg-ink]');
+    const tinta = (t) => {
+      if (!ink || !t) return;
+      ink.style.setProperty('--x', `${t.offsetLeft}px`);
+      ink.style.setProperty('--w', t.offsetWidth / 100);
+    };
+    const marcada = () => tabs.find((t) => t.getAttribute('aria-selected') === 'true');
+    tinta(marcada());
+    addEventListener('resize', () => tinta(marcada()), { passive: true });
+    if (document.fonts) document.fonts.ready.then(() => tinta(marcada()));
     tabs.forEach((t, i) => {
       t.addEventListener('click', () => select(i, false));
       t.addEventListener('keydown', (e) => {
@@ -171,6 +182,8 @@
       });
     });
   }
+
+  document.querySelectorAll('[data-ledger], [data-rise]').forEach((g) => [...g.children].forEach((c, n) => c.style.setProperty('--n', n)));
 
   const reveals = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window) {

@@ -117,9 +117,14 @@ html:not(.js) .nav__next, html:not(.js) .nav__ink { display: none; }
 .js .hero__text > * { animation: rise 700ms var(--ease-out) both; animation-delay: calc(var(--i, 0) * 80ms); }
 .js .hero__text > :nth-child(2) { --i: 1; }
 .js .hero__text > :nth-child(3) { --i: 2; }
-.js .plazos__head { animation: rise 700ms var(--ease-out) 120ms both; }
-.js .plazo { animation: rise 600ms var(--ease-out) both; animation-delay: calc(200ms + var(--i, 0) * 60ms); }
-.js .plazo::after { animation: draw 900ms var(--ease-out) both; animation-delay: calc(240ms + var(--i, 0) * 60ms); }
+.hero { position: relative; isolation: isolate; }
+.js .hero { background: var(--color-paper); }
+.js .hero::before { content: ""; position: absolute; inset: 0 0 0 var(--split); z-index: -1; background: var(--color-accent); transform-origin: right; animation: field 1100ms var(--ease-in-out) both; }
+@keyframes field { from { transform: scaleX(0); } to { transform: none; } }
+.js .plazos__head { animation: rise 800ms var(--ease-out) 620ms both; }
+.js .plazo { animation: rise 700ms var(--ease-out) both; animation-delay: calc(720ms + var(--i, 0) * 80ms); }
+.js .plazo::after { animation: draw 1000ms var(--ease-out) both; animation-delay: calc(760ms + var(--i, 0) * 80ms); }
+.js .plazos__note { animation: fade 900ms var(--ease-out) 1200ms both; }
 @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @keyframes draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
@@ -192,18 +197,19 @@ html:not(.js) .nav__next, html:not(.js) .nav__ink { display: none; }
 .docs__head .lead { color: var(--color-ink-2); }
 .seg { display: flex; flex-wrap: wrap; gap: 0; border-bottom: var(--rule-ink) solid var(--color-rule-ink); }
 .seg button { position: relative; min-height: 52px; padding: 0 var(--space-lg); border: 0; border-radius: 0; background: transparent; color: var(--color-muted); font-weight: 500; white-space: nowrap; cursor: pointer; transition: color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out); }
-.seg button::after { content: ""; position: absolute; left: 0; right: 0; bottom: calc(-1 * var(--rule-ink)); height: 4px; background: var(--color-accent); transform: scaleX(0); transform-origin: left; transition: transform var(--dur-long) var(--ease-out); }
+.seg { position: relative; }
+.seg__ink { position: absolute; left: 0; bottom: 0; width: 100px; height: 3px; background: var(--color-accent); transform-origin: left; transform: translateX(var(--x, 0)) scaleX(var(--w, 0)); transition: transform 620ms var(--ease-in-out); pointer-events: none; }
 .seg button:hover { color: var(--color-ink); background: var(--color-paper-3); }
 .seg button:active { color: var(--color-accent); }
 .seg button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
 .seg button[aria-selected="true"] { color: var(--color-ink); }
-.seg button[aria-selected="true"]::after { transform: scaleX(1); }
 html:not(.js) .seg { display: none; }
 .docs__panels { display: grid; gap: var(--space-2xl); }
 .docs__list { list-style: none; counter-reset: doc; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gap-columns); margin: 0; padding: var(--space-md) 0 0; }
 .docs__list li { counter-increment: doc; display: grid; grid-template-columns: 3rem minmax(0, 1fr); align-items: baseline; padding-block: var(--space-lg); border-bottom: 1px solid var(--color-paper-3); font-size: var(--text-title); font-weight: 500; line-height: 1.3; }
 .docs__list li::before { content: counter(doc); font: 400 var(--text-sm)/1 var(--font-outlier); color: var(--color-muted); }
 .js .docs__list.is-shown li { animation: rise 520ms var(--ease-out) both; animation-delay: calc(var(--n, 0) * 45ms); }
+.js .docs__list.is-shown li::after { animation: draw 800ms var(--ease-out) both; animation-delay: calc(60ms + var(--n, 0) * 70ms); }
 
 .contact { padding-block: var(--section-gap-s); background: var(--color-accent); color: var(--color-accent-ink); }
 .contact__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-3xl); align-items: end; }
@@ -272,6 +278,24 @@ html:not(.js) .seg { display: none; }
   .seg { flex-wrap: nowrap; overflow-x: auto; }
   .seg button { padding: 0 var(--space-md); }
   .sheet { padding: var(--space-lg) var(--space-md); }
+}
+
+[data-ledger] { --ledger-rule: var(--color-rule); }
+.sheet__rows, .docs__list { --ledger-rule: var(--color-paper-3); }
+.contact__rows { --ledger-rule: var(--color-accent-rule); }
+.js [data-ledger] > * { position: relative; border-bottom-color: transparent; }
+.js [data-ledger] > *::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--ledger-rule); transform: scaleX(0); transform-origin: left; transition: transform 1000ms var(--ease-out); transition-delay: calc(var(--n, 0) * 90ms); }
+.js [data-ledger] > * > :not(.portal__sign) { opacity: 0; transform: translateY(6px); transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out); transition-delay: calc(140ms + var(--n, 0) * 90ms); }
+.js [data-ledger].is-in > *::after { transform: none; }
+.js [data-ledger].is-in > * > :not(.portal__sign) { opacity: 1; transform: none; }
+.js [data-rise] > * { opacity: 0; transform: translateY(14px); transition: opacity 900ms var(--ease-out), transform 900ms var(--ease-out); transition-delay: calc(var(--n, 0) * 110ms); }
+.js [data-rise].is-in > * { opacity: 1; transform: none; }
+.js .footer__brand[data-reveal] .footer__mark { opacity: 0; }
+.js .footer__brand[data-reveal].is-in .footer__mark { opacity: 1; --sweep: linear-gradient(62deg, var(--color-ink) 42%, transparent 58%); -webkit-mask-size: 320% 100%; mask-size: 320% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; animation: brand-sweep 1600ms var(--ease-out) backwards; }
+@media (max-width: 60rem) { .js .hero::before { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .js .hero::before, .js .footer__brand[data-reveal].is-in .footer__mark { animation: none; }
+  .js [data-ledger] > *::after, .js [data-ledger] > * > :not(.portal__sign), .js [data-rise] > *, .js .footer__brand[data-reveal] .footer__mark { opacity: 1; transform: none; transition: none; }
 }
 
 .legal { padding-block: var(--space-3xl) var(--section-gap-s); }

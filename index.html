@@ -165,10 +165,10 @@
 
 <section class="stack" id="servicios" aria-labelledby="servicios-title">
   <div class="container stack__grid">
-    <div class="stack__pane">
+    <div class="stack__pane" data-rise data-reveal>
       <h2 id="servicios-title">Servicios de asesoría para empresas y particulares</h2>
       <p class="lead">Cinco áreas atendidas desde un mismo despacho en el centro de Alicante.</p>
-      <ol class="stack__index" data-stack-index>
+      <ol class="stack__index" data-stack-index data-ledger data-reveal>
         <li><a href="#fiscal" aria-current="true"><span class="num">1</span>Fiscal</a></li>
         <li><a href="#contable"><span class="num">2</span>Contable</a></li>
         <li><a href="#laboral"><span class="num">3</span>Laboral</a></li>
@@ -182,7 +182,7 @@
       <article class="sheet" id="fiscal" data-sheet>
         <h3 class="sheet__title">Asesoría fiscal</h3>
         <p class="sheet__lead">Planificación y presentación de impuestos para empresas, autónomos y particulares.</p>
-        <dl class="sheet__rows">
+        <dl class="sheet__rows" data-ledger data-reveal>
           <div><dt>Impuestos</dt><dd>IVA, IRPF, Sociedades, Renta y Patrimonio</dd></div>
           <div><dt>Modelos habituales</dt><dd class="mono">303, 130, 111, 115, 200 y 100</dd></div>
           <div><dt>Ante la Agencia Tributaria</dt><dd>Requerimientos, inspecciones y recursos</dd></div>
@@ -192,7 +192,7 @@
       <article class="sheet" id="contable" data-sheet>
         <h3 class="sheet__title">Asesoría contable</h3>
         <p class="sheet__lead">Contabilidad al día y cierre del ejercicio sin sobresaltos.</p>
-        <dl class="sheet__rows">
+        <dl class="sheet__rows" data-ledger data-reveal>
           <div><dt>Libros oficiales</dt><dd>Diario, mayor y registros de IVA</dd></div>
           <div><dt>Seguimiento</dt><dd>Balance y cuenta de resultados trimestrales</dd></div>
           <div><dt>Cierre</dt><dd>Cuentas anuales y depósito en el Registro Mercantil</dd></div>
@@ -202,7 +202,7 @@
       <article class="sheet" id="laboral" data-sheet>
         <h3 class="sheet__title">Asesoría laboral</h3>
         <p class="sheet__lead">Gestión de nóminas, contratación y Seguridad Social de su plantilla.</p>
-        <dl class="sheet__rows">
+        <dl class="sheet__rows" data-ledger data-reveal>
           <div><dt>Mensual</dt><dd>Nóminas y seguros sociales</dd></div>
           <div><dt>Contratación</dt><dd>Contratos, prórrogas, finiquitos y despidos</dd></div>
           <div><dt>Anual</dt><dd>Certificados de retenciones y resumen anual</dd></div>
@@ -212,7 +212,7 @@
       <article class="sheet" id="seguros" data-sheet>
         <h3 class="sheet__title">Seguros</h3>
         <p class="sheet__lead">Coberturas para la actividad profesional y para el ámbito personal.</p>
-        <dl class="sheet__rows">
+        <dl class="sheet__rows" data-ledger data-reveal>
           <div><dt>Empresas y profesionales</dt><dd>Responsabilidad civil, local y vehículos</dd></div>
           <div><dt>Particulares</dt><dd>Hogar, vida, salud y automóvil</dd></div>
           <div><dt>Siniestros</dt><dd>Tramitación del parte hasta su cierre</dd></div>
@@ -222,7 +222,7 @@
       <article class="sheet sheet--juridica" id="juridica" data-sheet>
         <h3 class="sheet__title">Asesoría jurídica</h3>
         <p class="sheet__lead">En colaboración con Sánchez y Mollá Abogados, en el mismo edificio.</p>
-        <dl class="sheet__rows">
+        <dl class="sheet__rows" data-ledger data-reveal>
           <div><dt>Empresas</dt><dd>Contratos, reclamación de deudas y sanciones</dd></div>
           <div><dt>Particulares</dt><dd>Herencias, familia y arrendamientos</dd></div>
           <div><dt>Despacho</dt><dd><span class="placa" role="img" aria-label="Sánchez y Mollá Abogados" data-reveal><span class="placa__wordmark">SÁNCHEZ Y MOLLÁ</span><span class="placa__s">Abogados</span></span></dd></div>
@@ -240,10 +240,10 @@
       </div>
       <figcaption>Avenida de Salamanca, 31, Alicante.</figcaption>
     </figure>
-    <div class="portal__text">
+    <div class="portal__text" data-rise data-reveal>
       <h2 id="juridico-title">Asesoría y despacho de abogados en el mismo edificio</h2>
       <p class="lead">Asesoría JOSFMA trabaja junto a Sánchez y Mollá Abogados. Los asuntos fiscales y jurídicos de cada cliente se coordinan entre ambos despachos.</p>
-      <ul class="portal__pair" data-reveal>
+      <ul class="portal__pair" data-ledger data-reveal>
         <li>
           <img class="portal__sign" src="assets/img/josfma-mark.png" width="527" height="378" alt="" loading="lazy">
           <p><b>Asesoría JOSFMA</b>Fiscal, contable, laboral y seguros</p>
@@ -259,37 +259,38 @@
 
 <section class="docs" id="documentacion" aria-labelledby="docs-title">
   <div class="container">
-    <div class="docs__head">
+    <div class="docs__head" data-rise data-reveal>
       <h2 id="docs-title">Documentación para la primera reunión</h2>
       <p class="lead">Con estos documentos revisamos su situación desde la primera cita.</p>
     </div>
     <div class="docs__switch" data-switch>
-      <div class="seg" role="tablist" aria-label="Tipo de cliente">
+      <div class="seg" role="tablist" aria-label="Tipo de cliente" data-seg>
         <button type="button" role="tab" id="t-autonomo" aria-controls="p-autonomo" aria-selected="true">Autónomos</button>
         <button type="button" role="tab" id="t-sociedad" aria-controls="p-sociedad" aria-selected="false" tabindex="-1">Sociedades</button>
         <button type="button" role="tab" id="t-particular" aria-controls="p-particular" aria-selected="false" tabindex="-1">Particulares</button>
         <button type="button" role="tab" id="t-plantilla" aria-controls="p-plantilla" aria-selected="false" tabindex="-1">Empleadores</button>
+        <span class="seg__ink" aria-hidden="true" data-seg-ink></span>
       </div>
       <div class="docs__panels">
-        <ol class="docs__list" role="tabpanel" id="p-autonomo" aria-labelledby="t-autonomo">
+        <ol class="docs__list" data-ledger data-reveal role="tabpanel" id="p-autonomo" aria-labelledby="t-autonomo">
           <li>DNI o NIE</li>
           <li>Alta censal, modelo 036 o 037</li>
           <li>Declaraciones del último ejercicio</li>
           <li>Facturas emitidas y recibidas</li>
         </ol>
-        <ol class="docs__list" role="tabpanel" id="p-sociedad" aria-labelledby="t-sociedad" data-hide>
+        <ol class="docs__list" data-ledger data-reveal role="tabpanel" id="p-sociedad" aria-labelledby="t-sociedad" data-hide>
           <li>Tarjeta de NIF de la sociedad</li>
           <li>Escrituras de constitución y poderes</li>
           <li>Últimas cuentas anuales depositadas</li>
           <li>Impuesto sobre Sociedades del último ejercicio</li>
         </ol>
-        <ol class="docs__list" role="tabpanel" id="p-particular" aria-labelledby="t-particular" data-hide>
+        <ol class="docs__list" data-ledger data-reveal role="tabpanel" id="p-particular" aria-labelledby="t-particular" data-hide>
           <li>DNI o NIE</li>
           <li>Última declaración de la Renta</li>
           <li>Certificados de retenciones del año</li>
           <li>Referencia catastral de la vivienda</li>
         </ol>
-        <ol class="docs__list" role="tabpanel" id="p-plantilla" aria-labelledby="t-plantilla" data-hide>
+        <ol class="docs__list" data-ledger data-reveal role="tabpanel" id="p-plantilla" aria-labelledby="t-plantilla" data-hide>
           <li>Código de cuenta de cotización</li>
           <li>DNI y número de la Seguridad Social del trabajador</li>
           <li>Convenio colectivo aplicable</li>
@@ -302,7 +303,7 @@
 
 <section class="contact" id="contacto" aria-labelledby="contact-title">
   <div class="container contact__grid">
-    <div class="contact__place">
+    <div class="contact__place" data-rise data-reveal>
       <h2 id="contact-title">Solicite una primera reunión</h2>
       <p class="lead">Le atendemos en nuestro despacho de la avenida de Salamanca, en el centro de Alicante.</p>
       <div class="actions">
@@ -310,7 +311,7 @@
         <a class="link" href="https://www.google.com/maps?cid=8652803770600536135" target="_blank" rel="noopener">Cómo llegar</a>
       </div>
     </div>
-    <dl class="contact__rows">
+    <dl class="contact__rows" data-ledger data-reveal>
       <div><dt>Dirección</dt><dd>Av. de Salamanca, 31<br>03005 Alicante</dd></div>
       <div><dt>Teléfono</dt><dd><a href="tel:+34965204077">965 20 40 77</a></dd></div>
       <div><dt>Horario</dt><dd><span class="fill" data-fill="horario">Horario por confirmar</span></dd></div>
@@ -323,7 +324,7 @@
 
 <footer class="footer">
   <div class="container footer__grid">
-    <div class="footer__brand">
+    <div class="footer__brand" data-reveal>
       <img class="footer__mark" src="assets/img/josfma-wordmark.png" width="1443" height="452" alt="Asesoría JOSFMA" loading="lazy">
       <p>Asesoría fiscal, contable, laboral y de seguros en Alicante. Asesoría jurídica en colaboración con Sánchez y Mollá Abogados.</p>
     </div>
