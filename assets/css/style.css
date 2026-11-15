@@ -148,7 +148,16 @@ html:not(.js) .nav__next, html:not(.js) .nav__ink { display: none; }
 .sheet__rows dt { font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); }
 .sheet__rows dd { margin: 0; font-size: var(--text-title); font-weight: 400; line-height: 1.3; color: var(--color-ink); }
 .sheet__rows dd.mono { font-size: var(--text-lg); }
-.sheet__logo { width: 220px; height: auto; }
+.placa { display: inline-grid; justify-items: center; gap: 0.15em; padding: 0.85em 1.4em 0.75em; background: var(--color-paper); border: 1px solid var(--color-rule-ink); box-shadow: 0 1px 0 var(--color-rule), 0 14px 28px -18px color-mix(in oklab, var(--color-ink) 45%, transparent); font-family: var(--font-display); color: var(--color-ink); line-height: 1.1; white-space: nowrap; }
+.placa__wordmark { font-weight: 400; font-size: 1.15rem; }
+.placa__s { font-size: 0.95rem; color: var(--color-muted); }
+.placa--s { padding: 0.6em 0.75em 0.5em; justify-self: start; }
+.placa--s .placa__wordmark { font-size: 0.84rem; }
+.placa--s .placa__s { font-size: 0.72rem; }
+.js .placa[data-reveal], .js .portal__pair[data-reveal] .portal__sign { transform-origin: 0 50%; transform: perspective(700px) rotateY(-64deg); opacity: 0; transition: transform 1300ms var(--ease-out), opacity 700ms var(--ease-out); transition-delay: var(--d, 0ms); }
+.js .portal__pair[data-reveal] li + li .portal__sign { --d: 220ms; }
+.js .placa[data-reveal].is-in, .js .portal__pair[data-reveal].is-in .portal__sign { transform: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .js .placa[data-reveal], .js .portal__pair[data-reveal] .portal__sign { transform: none; opacity: 1; transition: none; } }
 
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) and (min-width: 60rem) {
@@ -167,9 +176,8 @@ html:not(.js) .nav__next, html:not(.js) .nav__ink { display: none; }
 .portal__text { display: grid; gap: var(--space-lg); }
 .portal__text h2 { max-width: 16ch; }
 .portal__pair { list-style: none; margin: var(--space-md) 0 0; padding: 0; border-top: var(--rule-ink) solid var(--color-rule-ink); }
-.portal__pair li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: var(--space-lg); align-items: center; padding-block: var(--space-lg); border-bottom: 1px solid var(--color-rule); }
+.portal__pair li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: var(--space-lg); align-items: center; padding-block: var(--space-lg); border-bottom: 1px solid var(--color-rule); }
 .portal__pair img { width: 72px; height: auto; }
-.portal__pair img.portal__sm { width: 104px; }
 .portal__pair b { display: block; font-weight: 500; font-size: var(--text-lg); color: var(--color-ink); }
 .portal__pair p { color: var(--color-muted); }
 
